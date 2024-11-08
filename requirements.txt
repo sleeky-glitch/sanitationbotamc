@@ -1,0 +1,7 @@
+langchain-core
+langchain-community
+langchain-huggingface
+huggingface-hub
+pinecone-client
+python-dotenv
+pymupdf
