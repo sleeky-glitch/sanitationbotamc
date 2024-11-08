@@ -2,11 +2,11 @@ from main import Chatbot
 import streamlit as st
 
 # Page configuration should be the first Streamlit command
-st.set_page_config(page_title="GPMC BOT")
+st.set_page_config(page_title="AMC BOT")
 
 # Sidebar configuration
 with st.sidebar:
-    st.title('AMC Bot')
+    st.title('Sanitation Bot')
 
 # Caching the Chatbot instance to avoid reloading each time
 @st.cache_resource
@@ -20,14 +20,14 @@ def generate_response(input):
 
 # Initialize session state for messages only once
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Welcome, ask me questions about the GPMC act!"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Welcome, ask me questions about AMC's Sanitation Services!"}]
 
 # Display chat messages
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
 
-# Process user input and generate response
+# Process user input and generate a response
 if input_text := st.chat_input():
     # Append user message to session state
     st.session_state.messages.append({"role": "user", "content": input_text})
