@@ -35,7 +35,7 @@ class Chatbot:
         self.embeddings = HuggingFaceEmbeddings()
 
         # Define the index name
-        self.index_name = "amcgpmc"
+        self.index_name = "amcsanitation"
 
         # Initialize Pinecone client
         self.pc = PineconeClient(api_key=os.getenv('PINECONE_API_KEY')) 
