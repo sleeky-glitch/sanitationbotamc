@@ -1,19 +1,19 @@
 from main import Chatbot
 import streamlit as st
 
-# Page configuration should be the first Streamlit command
+# Page configuration
 st.set_page_config(page_title="Sanitation BOT")
 
 # Sidebar configuration
 with st.sidebar:
-    st.title('Chatbot for the Ahmedabad Municipal Corporation Sanitation Services')
+    st.title("Chatbot for the Ahmedabad Municipal Corporation Sanitation Services")
 
 # Caching the Chatbot instance to avoid reloading each time
 @st.cache_resource
 def get_chatbot():
     return Chatbot()
 
-# Lazy-load the bot and create it only if it's called
+# Lazy-load the bot and create it only if called
 def generate_response(input_text):
     bot = get_chatbot()
     return bot.rag_chain.invoke(input_text)
@@ -41,9 +41,9 @@ if input_text := st.chat_input():
         with st.spinner("Generating response..."):
             response = generate_response(input_text)
 
-            # Format long responses as bullet points for readability
+            # Format long responses with lines as bullet points for readability
             if isinstance(response, str) and len(response) > 100:
-                response_parts = response.split(". ")
+                response_parts = response.splitlines()
                 formatted_response = "\n".join(f"- {part.strip()}" for part in response_parts if part.strip())
                 st.markdown(formatted_response)
             else:
@@ -51,3 +51,4 @@ if input_text := st.chat_input():
 
         # Append assistant's response to session state
         st.session_state.messages.append({"role": "assistant", "content": response})
+
