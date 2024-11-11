@@ -21,7 +21,7 @@ def generate_response(input_text):
 # Initialize session state for messages only once
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "assistant", "content": "Welcome! Ask me questions about the GPMC of AMC."}
+        {"role": "assistant", "content": "Welcome! Ask me questions about the Sanitation Policies of AMC."}
     ]
 
 # Display chat messages
