@@ -2,7 +2,7 @@ from main import Chatbot
 import streamlit as st
 
 # Page configuration should be the first Streamlit command
-st.set_page_config(page_title="GPMC BOT")
+st.set_page_config(page_title="AMC Sanitation BOT")
 
 # Sidebar configuration
 with st.sidebar:
