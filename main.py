@@ -11,15 +11,12 @@ from pinecone import Pinecone as PineconeClient, ServerlessSpec
 from dotenv import load_dotenv
 from huggingface_hub import login
 
-# Log in to Hugging Face
-login(token='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')
-
 # Load environment variables
 load_dotenv()
 
 # Set up API keys
-os.environ['HUGGINGFACE_API_KEY'] = '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'
-os.environ['PINECONE_API_KEY'] = 'pcsk_7WpwPA_CmUETrTpg9yH2hf7ptazvxZ1y25vRNHz9HhovmWNS5CnDqheuPmDMnXJSsaV1r'
+os.environ['HUGGINGFACE_API_KEY'] = st.secrets["HUGGINGFACE_API_KEY"]
+os.environ['PINECONE_API_KEY'] = st.secrets["PINECONE_API_KEY"]
 
 class Chatbot:
     def __init__(self):
